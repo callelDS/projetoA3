@@ -19,9 +19,9 @@ public class BoletoService {
     private static final String CHARSET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
     private static final SecureRandom RANDOM = new SecureRandom();
 
-    private String gerarCodigoBarras() {
-        StringBuilder sb = new StringBuilder(10);
-        for (int i = 0; i < 10; i++) {
+    private String randomString(int tamanho) {
+        StringBuilder sb = new StringBuilder(tamanho);
+        for (int i = 0; i < tamanho; i++) {
             sb.append(CHARSET.charAt(RANDOM.nextInt(CHARSET.length())));
         }
         return sb.toString();
@@ -31,17 +31,19 @@ public class BoletoService {
         return boletoRepository.findAll();
     }
 
-    public Optional<Boleto> buscarPorCodigo(String codigo) {
-        return boletoRepository.findById(codigo);
+    public Optional<Boleto> buscarPorCodigoHash(String hash) {
+        return boletoRepository.findById(hash);
     }
 
     public Boleto criar(Boleto boleto) {
-        boleto.setCodigoBarras(gerarCodigoBarras());
+        boleto.setCodigoHash(randomString(15));   // ID principal
+        boleto.setCodigoBarras(randomString(60)); // código de barras
+
         return boletoRepository.save(boleto);
     }
 
-    public Optional<Boleto> atualizar(String codigo, Boleto novoBoleto) {
-        return boletoRepository.findById(codigo).map(b -> {
+    public Optional<Boleto> atualizar(String hash, Boleto novoBoleto) {
+        return boletoRepository.findById(hash).map(b -> {
             b.setDescricao(novoBoleto.getDescricao());
             b.setValor(novoBoleto.getValor());
             b.setStatusBoleto(novoBoleto.getStatusBoleto());
@@ -50,9 +52,9 @@ public class BoletoService {
         });
     }
 
-    public boolean deletar(String codigo) {
-        if (boletoRepository.existsById(codigo)) {
-            boletoRepository.deleteById(codigo);
+    public boolean deletar(String hash) {
+        if (boletoRepository.existsById(hash)) {
+            boletoRepository.deleteById(hash);
             return true;
         }
         return false;

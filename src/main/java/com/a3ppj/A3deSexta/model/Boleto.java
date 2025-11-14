@@ -1,19 +1,28 @@
 package com.a3ppj.A3deSexta.model;
 
-import jakarta.persistence.*;
 import java.time.LocalDate;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "boletos")
 public class Boleto {
 
     @Id
+    @Column(name = "codigo_hash", length = 15, nullable = false, unique = true)
+    private String codigoHash;
+
     @Column(name = "codigo_barras", length = 60, nullable = false, unique = true)
-    private String codigoBarras; // ID aleatório alfanumérico
+    private String codigoBarras;
 
     @ManyToOne
     @JoinColumn(name = "id_usuario", nullable = false)
-    private Usuario usuario; // relacionamento com a tabela usuarios
+    private Usuario usuario;
 
     @Column(nullable = false)
     private double valor;
@@ -31,18 +40,14 @@ public class Boleto {
 
     public Boleto() {}
 
-    public Boleto(String codigoBarras, Usuario usuario, double valor, String descricao,
-                  LocalDate dataEmissao, LocalDate dataVencimento, String statusBoleto) {
-        this.codigoBarras = codigoBarras;
-        this.usuario = usuario;
-        this.valor = valor;
-        this.descricao = descricao;
-        this.dataEmissao = dataEmissao;
-        this.dataVencimento = dataVencimento;
-        this.statusBoleto = statusBoleto;
+    // GETTERS E SETTERS
+    public String getCodigoHash() {
+        return codigoHash;
     }
 
-    // Getters e Setters
+    public void setCodigoHash(String codigoHash) {
+        this.codigoHash = codigoHash;
+    }
 
     public String getCodigoBarras() {
         return codigoBarras;

@@ -29,9 +29,9 @@ public class BoletoController {
         return boletoService.listarTodos();
     }
 
-    @GetMapping("/{codigo}")
-    public ResponseEntity<Boleto> buscarPorCodigo(@PathVariable String codigo) {
-        Optional<Boleto> boleto = boletoService.buscarPorCodigo(codigo);
+    @GetMapping("/{hash}")
+    public ResponseEntity<Boleto> buscarPorHash(@PathVariable String hash) {
+        Optional<Boleto> boleto = boletoService.buscarPorCodigoHash(hash);
         return boleto.map(ResponseEntity::ok)
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }
@@ -41,16 +41,16 @@ public class BoletoController {
         return boletoService.criar(boleto);
     }
 
-    @PutMapping("/{codigo}")
-    public ResponseEntity<Boleto> atualizar(@PathVariable String codigo, @RequestBody Boleto novoBoleto) {
-        Optional<Boleto> atualizado = boletoService.atualizar(codigo, novoBoleto);
+    @PutMapping("/{hash}")
+    public ResponseEntity<Boleto> atualizar(@PathVariable String hash, @RequestBody Boleto novoBoleto) {
+        Optional<Boleto> atualizado = boletoService.atualizar(hash, novoBoleto);
         return atualizado.map(ResponseEntity::ok)
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
-    @DeleteMapping("/{codigo}")
-    public ResponseEntity<Void> deletar(@PathVariable String codigo) {
-        if (boletoService.deletar(codigo)) {
+    @DeleteMapping("/{hash}")
+    public ResponseEntity<Void> deletar(@PathVariable String hash) {
+        if (boletoService.deletar(hash)) {
             return ResponseEntity.ok().build();
         }
         return ResponseEntity.notFound().build();
