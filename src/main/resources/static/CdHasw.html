@@ -8,7 +8,7 @@
 
     <style>
         body {
-            background-color: rgb(255, 255, 255);
+            background-color: rgb(232, 220, 223);
             margin: 0;
             padding: 0;
         }
@@ -23,12 +23,23 @@
 
         div.Centro {
             position: relative;
-            background-color: rgb(238, 45, 45);
+            /* IMPORTANTE para posicionar o logo dentro */
+            background-color: rgb(179, 15, 55);
             padding: 50px 80px 150px 80px;
             width: 700px;
             height: auto;
             border-radius: 15px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.493);
+        }
+
+        /* LOGO BRADESCO NO CANTO INFERIOR ESQUERDO */
+        #logoBradesco {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            width: 90px;
+            /* ajuste aqui se quiser maior/menor */
+            opacity: 0.9;
         }
 
         /* CAIXA DOS DADOS DO BOLETO */
@@ -42,7 +53,6 @@
             box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4);
         }
 
-        /* RETÂNGULO DO HASH CENTRAL */
         #RetanguloHasw {
             background-color: white;
             padding: 20px 35px;
@@ -62,10 +72,6 @@
             margin: 0;
         }
 
-        #termos {
-            margin-right: 8px;
-        }
-
         #PlaceHasw {
             font-size: 20px;
             padding: 6px 10px;
@@ -74,15 +80,11 @@
             border-radius: 5px;
             width: 220px;
             text-align: center;
+            user-select: none;
         }
 
-        /* BLOQUEAR SELEÇÃO E COLAR */
         #PlaceHasw::selection {
             background: transparent;
-        }
-
-        #PlaceHasw {
-            user-select: none;
         }
 
         #botaoEnviar {
@@ -122,6 +124,9 @@
             <input type="text" id="PlaceHasw" placeholder="Digite o código hash" disabled>
 
             <input type="button" id="botaoEnviar" value="Enviar" disabled onclick="AvancarPagina()">
+
+            <!-- LOGO BRADESCO -->
+            <img id="logoBradesco" src="Bradesco.png" alt="Logo Bradesco">
 
             <script src="ScriptTelaHas.js"></script>
         </div>
