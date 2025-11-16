@@ -55,4 +55,12 @@ public class BoletoController {
         }
         return ResponseEntity.notFound().build();
     }
+
+    @GetMapping("/codigobarras/{codigo}")
+public ResponseEntity<Boleto> buscarPorCodigoBarras(@PathVariable String codigo) {
+    Optional<Boleto> boleto = boletoService.buscarPorCodigoBarras(codigo);
+    return boleto.map(ResponseEntity::ok)
+                  .orElseGet(() -> ResponseEntity.notFound().build());
+}
+
 }

@@ -59,4 +59,9 @@ public class BoletoService {
         }
         return false;
     }
+
+    public Optional<Boleto> buscarPorCodigoBarras(String codigoBarras) {
+    return boletoRepository.findByCodigoBarras(codigoBarras);
+}
+
 }

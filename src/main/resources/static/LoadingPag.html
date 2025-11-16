@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagamento Boleto</title>
+    <style>
+    body {
+            background-color: rgb(255, 255, 255);
+        }
+        div.Total {
+            display: flex;
+            justify-content: center ;
+            align-items: flex;
+            height: 100vh;
+            margin: 0;
+        } 
+        div.Centro {
+            position: relative;
+            background-color: rgb(238, 45, 45);
+            top: 50px;
+            width: 700px;
+            height: 70%;
+            border-radius: 15px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        div.Loader {
+            border: 30px solid #fafafa;
+            border-top: 30px solid rgb(238, 45, 45);
+            border-radius: 100%;
+            width: 400px;
+            height: 400px;
+            animation: spin 20s linear infinite;
+        }       
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(7000deg); }
+        }
+        div.Confirmado {
+            background-color: rgb(255, 255, 255);
+            border-radius: 100%;
+            width: 450px;
+            height: 450px;
+        }
+        #check {
+            position: absolute;
+            font-size: 400px;      
+            color: rgb(238, 45, 45);
+            font-weight: bold;
+            padding-left: 60px;
+            bottom: 100px;
+        }
+        </style>
+</head>
+<body>
+    <div class="Total">
+        <div class="Centro">
+            <div id="Loading" class="Loader"></div>
+                <div id="CheckPag" class="Confirmado" style="display: none;">
+                    <span id="check">✔</span>
+                </div>
+            </div>
+            <script src="ScriptLoading.js"></script>
+        </div>
+    </div>
+</body>
+</html>

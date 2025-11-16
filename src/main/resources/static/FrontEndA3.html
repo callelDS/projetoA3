@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: rgb(255, 255, 255);
+        }
+        div.Total {
+            display: flex;
+            justify-content: center ;
+            align-items: flex;
+            height: 100vh;
+            margin: 0;
+        } 
+        div.Centro {
+            position: relative;
+            background-color: rgb(238, 45, 45);
+            top: 100px;
+            padding-top: 75px;
+            padding-left: 80px;
+            width: 700px;
+            height: 70%;
+            border-radius: 15px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+        }
+        #codigodebarras {
+            position:absolute;
+            top: 80px;   /* distância do fundo */
+            left: 30px;    /* distância da direita */
+            font-size: 20px;
+            padding: 6px 10px;
+            background-color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            border: 1px solid #000;
+            text-align: center;
+        }
+        #botaoAvancar {
+            
+            position: absolute;
+            bottom: 20px;   /* distância do fundo */
+            right: 30px;    /* distância da direita */
+            font-size: 20px;
+            padding: 6px 10px;
+            background-color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #botaoVoltar {
+            position: absolute;
+            bottom: 20px;   /* distância do fundo */
+            left: 30px;    /* distância da esquerda */
+            font-size: 20px;
+            padding: 6px 10px;
+            background-color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #botaoImg   {
+            position:absolute;
+            top: 80px;
+            left: 300px;
+            font-size: 20px;
+            padding: 6px 10px;
+            background-color: rgb(247, 247, 247);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            border: 1px solid #000;
+        }
+        #minhaImagem {
+            position: absolute;
+            top: 150px;
+            left: 30px;
+            border: 1px solid #000;
+            border-radius: 5px;
+        }
+
+    </style>
+
+</head>
+<body>
+    <div class="Total">
+        <div class="Centro">
+            <input type="text" id="codigodebarras" name="codigodebarras" placeholder="Código de Barras" >
+            <button id="botaoImg" onclick="mostrarImagem()" >→</button>
+            <img id="minhaImagem" alt="Imagem inicial" style="display: none;">
+            <br>
+            <button type="button" id="botaoAvancar" onclick="AvancarPagina()" style="text-align: center;" disabled >Avançar</button>
+            
+            <script src="ScriptBoleto.js"></script>
+        </div>  
+    </div>
+    
+</body>
+</html>
+

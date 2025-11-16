@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmação Hash</title>
+
+    <style>
+        body {
+            background-color: rgb(255, 255, 255);
+            margin: 0;
+            padding: 0;
+        }
+
+        div.Total {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            height: 100vh;
+            padding-top: 40px;
+        }
+
+        div.Centro {
+            position: relative;
+            background-color: rgb(238, 45, 45);
+            padding: 50px 80px 150px 80px;
+            width: 700px;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.493);
+        }
+
+        /* CAIXA DOS DADOS DO BOLETO */
+        #dadosBoleto {
+            background-color: white;
+            padding: 25px 30px;
+            border-radius: 15px;
+            font-size: 18px;
+            max-width: 650px;
+            margin-bottom: 40px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4);
+        }
+
+        /* RETÂNGULO DO HASH CENTRAL */
+        #RetanguloHasw {
+            background-color: white;
+            padding: 20px 35px;
+            width: 70%;
+            border-radius: 15px;
+            margin: 0 auto;
+            text-align: center;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4);
+            margin-bottom: 40px;
+        }
+
+        #CodigoHasw {
+            font-size: 24px;
+            letter-spacing: 10px;
+            color: black;
+            font-weight: bold;
+            margin: 0;
+        }
+
+        #termos {
+            margin-right: 8px;
+        }
+
+        #PlaceHasw {
+            font-size: 20px;
+            padding: 6px 10px;
+            background-color: white;
+            border: none;
+            border-radius: 5px;
+            width: 220px;
+            text-align: center;
+        }
+
+        /* BLOQUEAR SELEÇÃO E COLAR */
+        #PlaceHasw::selection {
+            background: transparent;
+        }
+
+        #PlaceHasw {
+            user-select: none;
+        }
+
+        #botaoEnviar {
+            font-size: 20px;
+            padding: 6px 15px;
+            background-color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="Total">
+        <div class="Centro">
+
+            <!-- RESUMO DO BOLETO -->
+            <div id="dadosBoleto">
+                <p><strong>Valor:</strong> <span id="valorBoleto">Carregando...</span></p>
+                <p><strong>Descrição:</strong> <span id="descricaoBoleto">Carregando...</span></p>
+                <p><strong>Data de Emissão:</strong> <span id="emissaoBoleto">Carregando...</span></p>
+                <p><strong>Data de Vencimento:</strong> <span id="vencimentoBoleto">Carregando...</span></p>
+            </div>
+
+            <!-- HASH EXIBIDO NO CENTRO -->
+            <div id="RetanguloHasw">
+                <h1 id="CodigoHasw">------</h1>
+            </div>
+
+            <!-- TERMOS + INPUT -->
+            <label><input type="checkbox" id="termos" onchange="habilitarBotao()"> Li e aceito os termos de uso.</label>
+            <br><br>
+
+            <input type="text" id="PlaceHasw" placeholder="Digite o código hash" disabled>
+
+            <input type="button" id="botaoEnviar" value="Enviar" disabled onclick="AvancarPagina()">
+
+            <script src="ScriptTelaHas.js"></script>
+        </div>
+    </div>
+</body>
+
+</html>
