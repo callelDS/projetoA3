@@ -4,7 +4,7 @@ async function mostrarImagem() {
     const codigo = document.getElementById("codigodebarras").value;
 
     // URL da sua API no Render
-    const API_URL = "http://localhost:8080/boletos/codigobarras/" + codigo;
+    const API_URL = "https://projetoa3-1.onrender.com/boletos/codigobarras/" + codigo;
 
     try {
         const resposta = await fetch(API_URL);
