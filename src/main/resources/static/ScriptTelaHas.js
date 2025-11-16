@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     document.getElementById("CodigoHasw").textContent = hash;
 
     // 🔥 ENDPOINT CORRETO (buscar boleto pelo hash)
-    const API_URL = "https://projetoa3-1.onrender.com/boletos/" + hash;
+    const API_URL = "http://localhost:8080/boletos/" + hash;
 
     try {
         const resposta = await fetch(API_URL);
