@@ -96,6 +96,11 @@
             cursor: pointer;
             margin-left: 10px;
         }
+
+        #termos {
+            margin-right: 8px;
+            color: white;
+        }
     </style>
 
 </head>
@@ -118,12 +123,13 @@
             </div>
 
             <!-- TERMOS + INPUT -->
-            <label><input type="checkbox" id="termos" onchange="habilitarBotao()"> Li e aceito os termos de uso.</label>
+            <label><input type="checkbox" id="termos" onchange="habilitarBotao()"> Li e concordo com as informações de
+                pagamento deste Boleto.</label>
             <br><br>
 
             <input type="text" id="PlaceHasw" placeholder="Digite o código hash" disabled>
 
-            <input type="button" id="botaoEnviar" value="Enviar" disabled onclick="AvancarPagina()">
+            <input type="button" id="botaoEnviar" value="Pagar" disabled onclick="AvancarPagina()">
 
             <!-- LOGO BRADESCO -->
             <img id="logoBradesco" src="Bradesco.png" alt="Logo Bradesco">
